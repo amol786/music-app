@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #3 rd party app
+    'rest_framework',
 
     #apps config
     'songsapp.apps.SongsappConfig',
@@ -123,3 +125,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TIME_ZONE = 'Asia/Calcutta'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.AllowAny',
+    ]
+}

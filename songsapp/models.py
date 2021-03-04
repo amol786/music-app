@@ -15,7 +15,7 @@ class PodCast(models.Model):
     podcast_duration = models.PositiveIntegerField()
     podcast_uploaded_time = models.DateTimeField(auto_now_add=True)
     host = models.CharField(max_length=100)
-    participants = models.TextField()
+    participants = models.TextField(null=True,blank=True)
     #participants = ArrayField(
     #        models.CharField(max_length=100, blank=True),
     #        size=10,
