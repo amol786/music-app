@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     #3 rd party app
     'rest_framework',
 
+    #Cross Origin Resource Sharing implemnetation   
+    'corsheaders',
+
     #apps config
     'songsapp.apps.SongsappConfig',
 ]
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #cors been applied 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -77,12 +81,23 @@ WSGI_APPLICATION = 'music_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+  }
+}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'musicapp',
+        'USER': 'root',
+        'PASSWORD': 'Sify@123',
+        'HOST': 'localhost',   
+        'PORT': '3306',
+    }  
 }
 
 
@@ -131,3 +146,5 @@ REST_FRAMEWORK = {
     'rest_framework.permissions.AllowAny',
     ]
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
